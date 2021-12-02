@@ -4,6 +4,17 @@ import StatTextBox from './StatTextBox.svelte'
   let sheet = new CharacterSheet('A Demo of the Quick Character Sheet')
   sheet.model = 'thequickrpg'
 
+  sheet.setStat('character_name', 'Thorbjörn Asmund')
+  sheet.setStat('callsign', 'Thor!')
+  sheet.setStat('concept', 'The Channel')
+  sheet.setStat('backgrounds', 'Thor(!) is a 40 years old fisher and a boat mechanic from northern sweden')
+  sheet.setStat('specialties', 'Thor races every man class')
+  sheet.setStat('powers', 'Open the Gate')
+  sheet.setStat('motivation', 'With Great Power')
+  sheet.setStat('flaws', 'Weirdmagnet')
+  sheet.setStat('Other Aspects', '-')
+  sheet.setStat('Contacts', 'Siiri')
+
   let backgrounds = sheet.getStat('backgrounds').value as string
 
   function stat(name: string, value: string) {
