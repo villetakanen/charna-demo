@@ -1,5 +1,6 @@
 <script lang="ts">
   import { CharacterSheet } from 'charna/lib'
+import HarmToggle from './HarmToggle.svelte'
   import StatTextBox from './StatTextBox.svelte'
   let sheet = new CharacterSheet('A Demo of the Quick Character Sheet')
   sheet.model = 'thequickrpg'
@@ -14,6 +15,8 @@
   sheet.setStat('flaws', 'Weirdmagnet')
   sheet.setStat('Other Aspects', '-')
   sheet.setStat('Contacts', 'Siiri')
+  sheet.setStat('harm_1',2)
+  sheet.setStat('harm_2', 1)
 
   let backgrounds = sheet.getStat('backgrounds').value as string
 
@@ -37,6 +40,8 @@
         value={'' + sheet.getStat(statName).value}
         stat={statName}
         on:update={handleStatUpdate}/>
+    {:else if sheet.getStat(statName).type === 'toggle' }
+      <HarmToggle value={'' + sheet.getStat(statName).value} stat={statName} on:update={handleStatUpdate}/>
     {/if}
   {/each}
 
