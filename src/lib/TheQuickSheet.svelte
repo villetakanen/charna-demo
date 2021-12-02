@@ -1,6 +1,6 @@
 <script lang="ts">
   import { CharacterSheet } from 'charna/lib'
-import StatTextBox from './StatTextBox.svelte'
+  import StatTextBox from './StatTextBox.svelte'
   let sheet = new CharacterSheet('A Demo of the Quick Character Sheet')
   sheet.model = 'thequickrpg'
 
@@ -32,10 +32,12 @@ import StatTextBox from './StatTextBox.svelte'
 
 <div class="section">
   {#each sheet.statKeys() as statName }
-    <StatTextBox
-      value={'' + sheet.getStat(statName).value}
-      stat={statName}
-      on:update={handleStatUpdate}/>
+    {#if sheet.getStat(statName).type === 'text'}
+      <StatTextBox
+        value={'' + sheet.getStat(statName).value}
+        stat={statName}
+        on:update={handleStatUpdate}/>
+    {/if}
   {/each}
 
   <hr>
