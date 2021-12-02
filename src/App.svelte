@@ -3,17 +3,10 @@
 </script>
 
 <main>
-
   <TheQuickSheet />
-
 </main>
 
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+<style lang="sass">
+main
+  font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif
 </style>
